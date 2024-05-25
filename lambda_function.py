@@ -16,7 +16,7 @@ def lambda_handler(event, context):
     s3 = boto3.client('s3')
     obj = s3.get_object(Bucket=input_bucket, Key=input_key)
     body = obj['Body'].read()
-    jsob_dicts = body.decode('utf-8').split('\r\n')
+    json_dicts = body.decode('utf-8').split('\r\n')
     df = pd.DataFrame(columns = ['id','status', 'amount', 'data'])
     for line in json_dicts:
         py_dict = json.loads(line)
