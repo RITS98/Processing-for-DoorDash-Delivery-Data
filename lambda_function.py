@@ -38,10 +38,13 @@ def lambda_handler(event, context):
         
     lambda_path = '/tmp/test.csv'
     bucket_name = os.getenv('output_bucket')
+    
+    print("Target Bucket Name = ",bucket_name)
+    print("Target SNS = ", os.getenv('TopicArn'))
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(bucket_name)
     
-    bucket.upload_file('/tmp/test.csv', filename)
+    bucket.upload_file(lambda_path, filename)
     sns = boto3.client('sns')
     response = sns.publish(TopicArn=os.getenv('TopicArn'),
                             Message="File {} has been formatted and filtered. Its been stored in \
