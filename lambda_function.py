@@ -15,10 +15,14 @@ def lambda_handler(event, context):
     
     s3 = boto3.client('s3')
     obj = s3.get_object(Bucket=input_bucket, Key=input_key)
+    print("Bucket name = ",input_bucket)
+    print("Bucket Key = ", input_key)
     body = obj['Body'].read()
     json_dicts = body.decode('utf-8').split('\r\n')
+    print(json_dicts)
     df = pd.DataFrame(columns = ['id','status', 'amount', 'data'])
     for line in json_dicts:
+        print("Line = ", line)
         py_dict = json.loads(line)
         if py_dict['status'] == 'delivered':
             df.loc[py_dict['id']] = py_dict
