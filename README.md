@@ -20,6 +20,10 @@ This assignment involves creating an automated AWS-based solution for processing
 5. Create IAM Role for Lambda
    ![image](https://github.com/RITS98/Processing-for-DoorDash-Delivery-Data/assets/51791113/9eae40f6-d1b3-46f8-8c3e-28af50efe325)
 
-6. 
+6. Crerate the lambda code
+   ![image](https://github.com/RITS98/Processing-for-DoorDash-Delivery-Data/assets/51791113/637184cd-f3da-4ef3-bee2-295c22e78f4a)
+
+7. Configure the CodeBuild in AWS
+   ![image](https://github.com/RITS98/Processing-for-DoorDash-Delivery-Data/assets/51791113/0f50f0fa-e399-4993-ac13-8a258a537599)
 
 
